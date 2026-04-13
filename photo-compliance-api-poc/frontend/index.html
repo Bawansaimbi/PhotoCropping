@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Compliance (POC)</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <header class="header">
+          <h1>Photo Compliance (POC)</h1>
+          <p class="sub">
+            Upload a photo, get an automatic face-centered crop, see compliance checks, and optionally re-crop manually.
+          </p>
+        </header>
+
+        <div class="controls">
+          <label class="file">
+            <span>Select image</span>
+            <input id="fileInput" type="file" accept="image/*" />
+          </label>
+
+          <button id="processBtn" class="btn primary" disabled>Process</button>
+          <button id="manualCropBtn" class="btn">Manual crop</button>
+          <a id="downloadLink" class="btn" href="#" download="cropped.jpg" aria-disabled="true">Download cropped</a>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+
+        <div class="grid">
+          <div class="panel">
+            <h2>Original (draw crop rectangle)</h2>
+            <div id="originalWrap" class="imgWrap">
+              <img id="originalImg" alt="Original preview" />
+              <canvas id="overlay" class="overlay"></canvas>
+            </div>
+            <div class="hint">
+              Drag on the image to set a manual crop, then click <strong>Manual crop</strong>.
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>Cropped</h2>
+            <div class="imgWrap">
+              <img id="croppedImg" alt="Cropped preview" />
+            </div>
+          </div>
+        </div>
+
+        <section class="results">
+          <h2>Compliance checks</h2>
+          <div id="overall" class="overall"></div>
+          <ul id="checks" class="checks"></ul>
+          <div id="warnings" class="warnings"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+

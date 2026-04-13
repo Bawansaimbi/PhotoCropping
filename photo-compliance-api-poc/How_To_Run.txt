@@ -1,0 +1,7 @@
+- Install Python
+- cd <project Folder>
+- python -m venv .venv
+- .\.venv\Scripts\Activate.ps1
+- pip install -r requirements.txt
+- cd backend
+- uvicorn app.main:app --reload --port 8000
